@@ -3624,9 +3624,9 @@ h1.post__title {
     transition: all 0.4s;
     align-items: center;
     margin-bottom: 60px;
-    border-radius: 10px;
+    border-radius: 10px; 
     justify-content: center;
-    background-color: var(--light-bg3);
+    background-color: var(--light-bg3); 
 }
 .optech-iconbox-icon img {
     transition: all 0.4s;
@@ -3657,7 +3657,7 @@ h1.post__title {
 }
 .optech-iconbox-icon2 i {
     font-size: 48px;
-    color: #2b4dff;
+    color: #2b4dff; 
     font-weight: 400;
 }
 .optech-iconbox-data2 {
@@ -3674,17 +3674,17 @@ h1.post__title {
     margin-bottom: 40px;
 }
 .optech-numberbox-data span {
-    width: 40px;
+    /* width: 40px;
     height: 40px;
-    display: flex;
+    display: flex; */
     font-size: 14px;
     font-weight: 600;
     border-radius: 100px;
     align-items: center;
     margin: 0 auto 28px;
     justify-content: center;
-    color: var(--white-color);
-    background-color: var(--accent-bg);
+    /* color: var(--white-color); */
+    /* background-color: var(--accent-bg); */
 }
 .optech-numberbox-data h4 {
     margin-bottom: 10px;
@@ -3818,7 +3818,7 @@ h1.post__title {
     border-radius: 10px;
     align-items: center;
     justify-content: center;
-    background-color: var(--accent-bg);
+    background-color: var(--accent-bg); 
 }
 .optech-iconbox-data3 p {
     font-weight: 600;
