@@ -3861,7 +3861,7 @@ h1.post__title {
     position: relative;
     transition: all 0.4s;
     border-bottom: 1px solid var(--light-color1);
-}
+}  
 .optech-accordion-item:last-child {
     margin-bottom: 0;
 }
@@ -3886,7 +3886,7 @@ h1.post__title {
     z-index: 2;
     font-family: remixicon;
     color: var(--heading-color);
-}
+} 
 @media (max-width: 767px) {
     .optech-accordion-header::before {
         top: 5px;
