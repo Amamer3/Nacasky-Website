@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Optech - IT Solution & Technology Theme</title>
+  <title>Nacasky - IT Solution & Technology</title>
 
   <link rel="shortcut icon" href="assets/images/logo/NACASKY bird TRANS 3.png" type="image/x-icon">
   <link rel="icon" href="assets/images/logo/NACASKY bird TRANS 3.png" type="image/x-icon">
@@ -33,7 +33,7 @@
 </head>
 
 <body>
-<!-- End preloader -->
+<!-- preloader -->
   <div class="optech-preloader-wrap">
     <div class="optech-preloader">
       <div></div>
@@ -144,7 +144,7 @@
               <!-- <div class="optech-header-search">
                 <i class="bi bi-search"></i>
               </div> -->
-              <a class='optech-default-btn optech-header-btn' data-text='Get in Touch' href="contact-us.html"><span class="btn-wraper">Get in Touch</span></a>
+              <a class='optech-default-btn optech-header-btn' data-text='Get in Touch' href="contact.html"><span class="btn-wraper">Get in Touch</span></a>
             </div>
           </div>
           <!-- mobile menu trigger -->
@@ -157,21 +157,7 @@
     </div>
   </header>
 
-  <!-- search button -->
-  <!-- <div class="optech-header-search-section">
-    <div class="container">
-      <div class="optech-header-search-box">
-        <input type="search" placeholder="Search here...">
-        <button id="header-search" type="button"><i class="bi bi-search"></i></button>
-        <p>Type above and press Enter to search. Press Close to cancel.</p>
-      </div>
-    </div>
-    <div class="optech-header-search-close">
-      <i class="bi bi-x-lg"></i>
-    </div>
-  </div>
-  <div class="search-overlay"></div> -->
-  <!--End landex-header-section -->
+  
 
 
 <!-- Main Content starts -->
@@ -214,33 +200,42 @@
           <div class="optech-main-form bg-light1 ml60" data-aos="fade-up" data-aos-duration="800">
             <h3>Fill The Contact Form</h3>
             <p>Feel free to contact with us, we don’t spam your email</p>
-            <form action="#">
+            
+            <form action="http://localhost:5501/api/send-email" method="POST">
               <div class="row">
-                <div class="col-lg-6">
-                  <div class="optech-main-field">
-                    <input type="text" placeholder="Your name">
+                  <div class="col-lg-6">
+                      <div id="name-error" class="error-message" style="display: none; color: red;"></div>
+                      <div class="optech-main-field">
+                          <input type="text" name="name" placeholder="Your name">
+                      </div>
                   </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="optech-main-field">
-                    <input type="number" placeholder="Phone number">
+                  <div class="col-lg-6">
+                      <div id="phone-error" class="error-message" style="display: none; color: red;"></div>
+                      <div class="optech-main-field">
+                          <input type="text" name="phone" placeholder="Phone number">
+                      </div>
                   </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="optech-main-field">
-                    <input type="email" placeholder="Email address">
+                  <div class="col-lg-12">
+                      <div id="email-error" class="error-message" style="display: none; color: red;"></div>
+                      <div class="optech-main-field">
+                          <input type="email" name="email" placeholder="Email address">
+                      </div>
                   </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="optech-main-field">
-                    <textarea name="textarea" placeholder="Write your message"></textarea>
+                  <div class="col-lg-12">
+                      <div id="message-error" class="error-message" style="display: none; color: red;"></div>
+                      <div class="optech-main-field">
+                          <textarea name="message" placeholder="Write your message"></textarea>
+                      </div>
                   </div>
-                </div>
-                <div class="col-lg-12">
-                  <button id="optech-main-form-btn" type="button" data-text="Send Message"> <span class="btn-wraper">Send Message</span> </button>
-                </div>
+                  <div class="col-lg-12">
+                      <button id="optech-main-form-btn" type="submit" data-text="Send Message">
+                          <span class="btn-wraper">Send Message</span>
+                      </button>
+                  </div>
               </div>
-            </form>
+          </form>
+          
+          
           </div>
         </div>
       </div>
@@ -366,6 +361,7 @@
   <script src="assets/js/aos.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyArZVfNvjnLNwJZlLJKuOiWHZ6vtQzzb1Y"></script>
 
+  <script src="assets/js/contact-form.js"></script>
   <script src="assets/js/app.js"></script>
 
 

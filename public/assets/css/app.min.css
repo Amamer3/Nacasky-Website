@@ -3578,9 +3578,9 @@ h1.post__title {
     background-color: var(--white-bg);
 }
 .optech-iconbox-wrap {
-    padding: 28px;
-    transition: all 0.4s;
-    background-color: var(--white-bg);
+    padding: 30px;
+    /* transition: all 0.4s; */
+    background-color: rgb(227, 227, 227);
     border-radius: 18px;
 }
 .optech-iconbox-wrap:hover {
