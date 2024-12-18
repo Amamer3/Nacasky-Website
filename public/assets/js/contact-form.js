@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showPreloader();
 
         try {
-            const response = await fetch('http://localhost:5501/api/contact', {
+            const response = await fetch('https://nacasky-website.vercel.app/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
