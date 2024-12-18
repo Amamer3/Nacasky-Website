@@ -1,13 +1,24 @@
-require('dotenv').config();
-const nodemailer = require('nodemailer');
-const Mailgen = require('mailgen');
+import dotenv from 'dotenv';
+import express from 'express';
+import nodemailer from 'nodemailer';
+import Mailgen from 'mailgen';
+import cors from 'cors';
+
+dotenv.config();
+
+const app = express();
+
+// Middleware
+app.use(cors()); // Allow cross-origin requests
+app.use(express.json()); // Parse JSON payloads
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded payloads
 
 // Email configuration
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS,
+        pass: process.env.GMAIL_PASS, // App Password for Gmail
     },
 });
 
@@ -42,12 +53,8 @@ const validateInput = ({ name, phone, email, message }) => {
     return null;
 };
 
-// Exported handler for serverless functions
-module.exports = async (req, res) => {
-    if (req.method !== 'POST') {
-        return res.status(405).json({ message: 'Method Not Allowed' });
-    }
-
+// POST route to handle form submissions
+app.post('/api/contact', async (req, res) => {
     const { name, phone, email, message } = req.body;
 
     // Validate input
@@ -56,13 +63,29 @@ module.exports = async (req, res) => {
         return res.status(400).json({ message: validationError });
     }
 
+    // Generate email content
     const emailContent = mailGenerator.generate({
         body: {
-            name,
-            intro: message,
-            outro: `Contact details: Phone - ${phone}, Email - ${email}`,
-        },
+            name: "Hello Nacasky Team,",
+            intro: [
+                "You have received a new inquiry through your website contact form.",
+                "Below are the details of the submission:"
+            ],
+            logo: "https://imgbox.com/c9D1PY8d", // Add your company logo URL
+            dictionary: {
+                "Name": name,
+                "Phone": phone,
+                "Email": email,
+                "Message": message
+            },
+            outro: [
+                "Please follow up with this inquiry promptly.",
+                "Warm regards,",
+                "Your Automated Notification System"
+            ]
+        }
     });
+    
 
     const mailOptions = {
         from: process.env.GMAIL_USER,
@@ -78,4 +101,14 @@ module.exports = async (req, res) => {
         console.error('Error sending email:', error);
         res.status(500).json({ message: 'Failed to send email. Please try again later.' });
     }
-};
+});
+
+// Test route
+app.get("/", (req, res) => res.send("Express on Vercel"));
+
+// Start the server
+const PORT = process.env.PORT || 5501; // Use environment variable or default to 5501
+app.listen(PORT, () => console.log(`Server ready on port ${PORT}.`));
+
+// Export the app for Vercel
+export default app;

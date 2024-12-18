@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showPreloader();
 
         try {
-            const response = await fetch('https://nacasky-website.vercel.app/api/send-email', {
+            const response = await fetch('http://localhost:5501/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                alert('Message sent successfully!');
+                alert('Email Was Sent Successfully!');
                 form.reset(); // Clear all form fields
             } else {
                 const errorData = await response.json();
